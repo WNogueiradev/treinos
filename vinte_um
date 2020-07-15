@@ -1,0 +1,60 @@
+import random
+#print('Desenvolvido por wnogueira')
+
+#INTRO
+print("BEM VINDO AO JOGO 21\n")
+
+instru = str(input(print('Deseja conhecer as regras? [S/N]')))
+if instru == 'S':
+    print('Você poderá sortear um numero de 1 a 13 quantas vezes necessário com as condições abaixo: \n'
+          'Se seu numero for superior a 21 você perde\n'
+          'Ao final da rodada, vencerá quem chegar mais próximo de 21 \n' )
+
+
+nome1 = str(input(print('Digite o nome do Jogador 1')))
+nome2 = str(input(print('Digite o nome do Jogador 2')))
+
+#JOGO PLAYER 1
+
+print(f'Agora é vez do {nome1}')
+
+sorteio = str(input('DESEJA SORTEAR UM NUMERO DE 1 A 13? [S/N]'))
+contador1 = 0
+while sorteio == 'S':
+        numsort1 = int(random.randint(1, 13)) #Gera numero aleatorio de 1 a 13
+        print(f'{numsort1}')
+        contador1 = contador1 + numsort1 #Soma os valores sorteados
+        sorteio = str(input('DESEJA SORTEAR MAIS UM NUMERO DE 1 A 13? [S/N]'))
+
+print(f'{nome1} fez: {contador1} pontos')  # mostra resultado jogador 1
+
+# #JOGO PLAYER 2
+print(f'Agora é vez do {nome2}')
+sorteio = str(input('DESEJA SOTEAR UM NUMERO DE 1 A 13? [S/N]'))
+contador2 = 0
+while sorteio == 'S':
+        numsort2 = int(random.randint(1, 13)) #Gera numero aleatorio de 1 a 13
+        print(f'{numsort2}')
+        contador2 = contador2 + numsort2 #Soma os valores sorteados
+        sorteio = str(input('DESEJA SORTEAR MAIS UM NUMERO DE 1 A 13? [S/N]'))
+
+print(f'{nome2} fez: {contador2} pontos') #mostrar resultado jogador 2
+
+#RESULTADO
+if contador2 < contador1 and contador1 < 21:
+    print('--------------------------------')
+    print(f'O vencedor foi {nome1}')
+elif contador1 < contador2 and contador2 < 21:
+    print('--------------------------------')
+    print(f'O vencedor foi o {nome2}')
+elif contador2 > contador1 and contador2 > 21:
+    print('--------------------------------')
+    print(f'O vencedor foi {nome1}')
+elif contador1 > contador2 and contador1 > 21:
+    print('--------------------------------')
+    print(f'O vencedor foi {nome2}')
+else:
+    print('--------------------------------')
+    print('JOGO EMPATADO!')
+
+
